@@ -20,7 +20,27 @@
       <h3>Basic uvalib-card Demo</h3>
       <demo-snippet>
         <template>
-          <uvalib-card></uvalib-card>
+
+          <style>
+            uvalib-card {
+              margin-bottom: 20px;
+            }
+          </style>
+
+          <uvalib-card heading="Card Title">
+            <div class="card-content">Some Content</div>
+            <div class="card-actions">
+              <uvalib-button>Some Action</uvalib-button>
+            </div>
+          </uvalib-card>
+
+          <uvalib-card elevation="0" heading="Card Title">
+            <div class="card-content">Some Content</div>
+            <div class="card-actions">
+              <uvalib-button>Some Action</uvalib-button>
+            </div>
+          </uvalib-card>
+
         </template>
       </demo-snippet>
     </div>

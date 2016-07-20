@@ -1,10 +1,11 @@
 <link rel="import" href="../polymer/polymer.html">
+<link rel="import" href="../paper-card/paper-card.html">
 
 <!--
 `uvalib-card`
 Card display component for the Library Web
 
-@demo demo/index.html 
+@demo demo/index.html
 -->
 
 <dom-module id="uvalib-card">
@@ -14,7 +15,11 @@ Card display component for the Library Web
         display: block;
       }
     </style>
-    <h2>Hello [[prop1]]</h2>
+    <paper-card heading="{{heading}}"
+                image="{{image}}"
+                elevation="{{elevation}}">
+      <content></content>
+    </paper-card>
   </template>
 
   <script>
@@ -23,10 +28,12 @@ Card display component for the Library Web
       is: 'uvalib-card',
 
       properties: {
-        prop1: {
-          type: String,
-          value: 'uvalib-card',
-        },
+        heading: String,
+        image: String,
+        elevation: {
+          type: Number,
+          value: 1
+        }
       },
 
     });
