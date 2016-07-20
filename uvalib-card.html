@@ -1,0 +1,34 @@
+<link rel="import" href="../polymer/polymer.html">
+
+<!--
+`uvalib-card`
+Card display component for the Library Web
+
+@demo demo/index.html 
+-->
+
+<dom-module id="uvalib-card">
+  <template>
+    <style>
+      :host {
+        display: block;
+      }
+    </style>
+    <h2>Hello [[prop1]]</h2>
+  </template>
+
+  <script>
+    Polymer({
+
+      is: 'uvalib-card',
+
+      properties: {
+        prop1: {
+          type: String,
+          value: 'uvalib-card',
+        },
+      },
+
+    });
+  </script>
+</dom-module>
