@@ -9,6 +9,7 @@
     <link rel="import" href="../../iron-demo-helpers/demo-pages-shared-styles.html">
     <link rel="import" href="../../iron-demo-helpers/demo-snippet.html">
 
+    <link rel="import" href="../../uvalib-theme/uvalib-theme.html">
     <link rel="import" href="../../uvalib-button/uvalib-button.html">
     <link rel="import" href="../uvalib-card.html">
 
@@ -17,7 +18,7 @@
   </head>
   <body>
 
-    <div class="vertical-section-container centered">
+    <div class="vertical-section-container">
       <h3>Basic uvalib-card Demo</h3>
       <demo-snippet>
         <template>
@@ -28,10 +29,17 @@
             }
           </style>
 
-          <uvalib-card heading="Card Title">
+          <uvalib-card heading="Card Title"  image="https://static.lib.virginia.edu/images/services_image.png">
             <div class="card-content">Some Content</div>
             <div class="card-actions">
               <uvalib-button>Some Action</uvalib-button>
+            </div>
+          </uvalib-card>
+
+          <uvalib-card horizontal heading="Horizontal Card"  image="https://static.lib.virginia.edu/images/spaces_image.png">
+            <div class="card-content">This is some content. No border between content and actions.</div>
+            <div class="card-actions">
+              <uvalib-button>Action</uvalib-button>
             </div>
           </uvalib-card>
 

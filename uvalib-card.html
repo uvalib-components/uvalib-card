@@ -11,19 +11,53 @@ Card display component for the Library Web
 
 <dom-module id="uvalib-card">
   <template>
-    <style>
+    <style is="custom-style">
       :host {
         display: block;
+        --uvalib-card-horizontal-header-max-width: 200px;
       }
       .card-content a {
         display: block;
       }
+      .horizontal {
+        --paper-card-header: {
+          float: left;
+        }
+        --paper-card-actions: {
+          border-top: 0px;
+        }
+      }
+      .horizontal .header {
+        max-width: var(--uvalib-card-horizontal-header-max-width);
+      }
+      .horizontal .heading {
+        @apply(--font-headline);
+        padding-left: 15px;
+        padding-top: 15px;
+      }
+      .horizontal .content {
+        float: right;
+        padding: 5px;
+      }
     </style>
-    <paper-card heading="{{heading}}"
-                image="{{image}}"
-                elevation="{{elevation}}">
-      <content></content>
-    </paper-card>
+
+    <template is="dom-if" if="{{!horizontal}}">
+      <paper-card heading="{{heading}}"
+                  image="{{image}}"
+                  elevation="{{elevation}}">
+        <content></content>
+      </paper-card>
+    </template>
+    <template is="dom-if" if="{{horizontal}}">
+      <paper-card class="horizontal"
+                  image="{{image}}"
+                  elevation="{{elevation}}">
+        <div class="content">
+          <div class="heading">{{heading}}</div>
+          <content></content>
+        </div>
+      </paper-card>
+    </template>
   </template>
 
   <script>
@@ -37,8 +71,12 @@ Card display component for the Library Web
         elevation: {
           type: Number,
           value: 1
+        },
+        horizontal: {
+          type: Boolean,
+          value: false
         }
-      },
+      }
 
     });
   </script>
