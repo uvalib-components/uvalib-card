@@ -1,0 +1,274 @@
+<link rel="import" href="../polymer/polymer.html">
+<link rel="import" href="../uvalib-theme/uvalib-theme.html">
+<link rel="import" href="uvalib-card.html">
+
+<!--
+`uvalib-research-card`
+Card display component for the Library Web
+
+@demo demo/index.html
+-->
+
+<dom-module id="uvalib-research-card">
+  <template>
+    <style is="custom-style">
+      :host {
+        display: block;
+      }
+      ul {
+        list-style: none;
+      }
+      li a {
+        text-decoration: none;
+        @apply(--font-card-content)
+      }
+    </style>
+
+    <uvalib-card horizontal$="{{horizontal}}" elevation$="{{elevation}}" class="card" heading="Research" image="/images/research.jpg">
+        <div class="card-content">
+          <ul>
+            <li><a href="http://search.lib.virginia.edu/">Virgo: Library Catalog</a>
+            <li><a href="http://guides.lib.virginia.edu/az.php">Databases A-Z</a>
+            <li><a href="http://www.library.virginia.edu/research/">Subject Guides</a>
+            <li><a href="http://guides.lib.virginia.edu/journalfinder">Journal Finder</a>
+            <li><a href="http://www.library.virginia.edu/services/search-course-reserves/">Course Reserves</a>
+          </ul>
+        </div>
+        <div class="card-actions">
+            <uvalib-button href="//www.library.virginia.edu/research/">More Research Tools</uvalib-button>
+        </div>
+    </uvalib-card>
+
+  </template>
+  <script>
+    Polymer({
+      is: 'uvalib-research-card',
+      properties: {
+        elevation: {
+          type: Number,
+          value: 1
+        },
+        horizontal: {
+          type: Boolean,
+          value: false
+        }
+      }
+    });
+  </script>
+</dom-module>
+
+<!--
+`uvalib-spaces-card`
+Card display component for the Library Web
+
+@demo demo/index.html
+-->
+
+<dom-module id="uvalib-spaces-card">
+  <template>
+    <style is="custom-style">
+      :host {
+        display: block;
+      }
+      ul {
+        list-style: none;
+      }
+      li a {
+        text-decoration: none;
+        @apply(--font-card-content)
+      }
+    </style>
+
+    <uvalib-card horizontal$="{{horizontal}}" elevation$="{{elevation}}" class="card" vertical heading="Spaces &amp; Equipment" image="/images/spaces.jpg">
+        <div class="card-content">
+          <ul>
+            <li><a href="http://www.library.virginia.edu/map/#!/study/">Find Study Spaces</a>
+            <li><a href="http://www.library.virginia.edu/exhibitions/">Exhibitions</a>
+            <li><a href="http://www.library.virginia.edu/services/scanning-self-service/">Printers &amp; Scanning</a>
+            <li><a href="https://www.library.virginia.edu/services/reserve-equipment-computers/">Borrow Equipment</a>
+            <li><a href="https://www.library.virginia.edu/services/reserve-rooms/">Reserve a Room</a>
+            <li><a href="http://static.lib.virginia.edu/directory/libraries.html">Digital Labs</a>
+          </ul>
+        </div>
+        <div class="card-actions">
+            <uvalib-button href="http://www.library.virginia.edu/map/">Explore Spaces</uvalib-button>
+        </div>
+    </uvalib-card>
+
+  </template>
+  <script>
+    Polymer({
+      is: 'uvalib-spaces-card',
+      properties: {
+        elevation: {
+          type: Number,
+          value: 1
+        },
+        horizontal: {
+          type: Boolean,
+          value: false
+        }
+      }
+    });
+  </script>
+</dom-module>
+
+<!--
+`uvalib-services-card`
+Card display component for the Library Web
+
+@demo demo/index.html
+-->
+
+<dom-module id="uvalib-services-card">
+  <template>
+    <style is="custom-style">
+      :host {
+        display: block;
+      }
+      ul {
+        list-style: none;
+      }
+      li a {
+        text-decoration: none;
+        @apply(--font-card-content)
+      }
+    </style>
+
+    <uvalib-card horizontal$="{{horizontal}}" elevation$="{{elevation}}" class="card" vertical heading="Services" image="/images/services.jpg">
+        <div class="card-content">
+          <ul>
+            <li><a href="http://guides.lib.virginia.edu/subjectlibrarians">Subject Liasons</a>
+            <li><a href="http://www.library.virginia.edu/services/ils/leo/">LEO Delivery</a>
+            <li><a href="http://www.library.virginia.edu/services/ils/">Interlibrary Loan</a>
+            <li><a href="http://libra.virginia.edu/">Libra</a>
+            <li><a href="http://data.library.virginia.edu/research-software/">Research Software Support</a>
+            <li><a href="http://www.library.virginia.edu/services/classes/">Library Classes</a>
+          </ul>
+        </div>
+        <div class="card-actions">
+            <uvalib-button href="http://www.library.virginia.edu/services/">More Services</uvalib-button>
+        </div>
+    </uvalib-card>
+
+  </template>
+  <script>
+    Polymer({
+      is: 'uvalib-services-card',
+      properties: {
+        elevation: {
+          type: Number,
+          value: 1
+        },
+        horizontal: {
+          type: Boolean,
+          value: false
+        }
+      }
+    });
+  </script>
+</dom-module>
+
+<!--
+`uvalib-services-card`
+Card display component for the Library Web
+
+@demo demo/index.html
+-->
+
+<dom-module id="uvalib-featured-exhibit-card">
+  <template>
+    <style is="custom-style">
+      :host {
+        display: block;
+      }
+      ul {
+        list-style: none;
+      }
+      li a {
+        text-decoration: none;
+        @apply(--font-card-content)
+      }
+    </style>
+
+    <uvalib-card horizontal$="{{horizontal}}" elevation$="{{elevation}}" class="card" heading="Exhibition Spotlight" image="/images/exhibit.png">
+        <div class="card-content">
+            <h3>Shakespeare by the Book: Four Centuries of Printing, Editing, and Publishing</h3>
+            <p>This exhibition marks the 400th anniversary of Shakespeare's death by celebrating how his works have come to life through innovations in print technology, editorial practice, and graphic design. Books and printing artifacts drawn from Special Collections' eclectic holdings will explain the technology of printed books in the 17th century, narrate the complex editorial history of the plays, and survey the myriad forms Shakespeare's works have taken in print over the last two centuries. Visitors will see both our oldest and most radically modern Shakespeare volumes, learn about U.Va.'s special role in the history of Shakespeare scholarship, and encounter more than 100 miniature volumes dedicated to the playwright and his works.</p>
+            <p>The exhibition will open in the Harrison North Gallery on February 22, 2016. From October 1-26, 2016, it will become the backdrop for the visiting Folger Shakespeare Library single-item exhibition "First Folio!: The Book that Gave Us Shakespeare."</p>
+        </div>
+        <div class="card-actions">
+            <uvalib-button href="http://www.library.virginia.edu/exhibitions/">View all exhibitions</uvalib-button>
+        </div>
+    </uvalib-card>
+
+  </template>
+  <script>
+    Polymer({
+      is: 'uvalib-featured-exhibit-card',
+      properties: {
+        elevation: {
+          type: Number,
+          value: 1
+        },
+        horizontal: {
+          type: Boolean,
+          value: false
+        }
+      }
+    });
+  </script>
+</dom-module>
+
+<!--
+`uvalib-engage-card`
+Card display component for the Library Web
+
+@demo demo/index.html
+-->
+
+<dom-module id="uvalib-engage-card">
+  <template>
+    <style is="custom-style">
+      :host {
+        display: block;
+      }
+      ul {
+        list-style: none;
+      }
+      li a {
+        text-decoration: none;
+        @apply(--font-card-content)
+      }
+    </style>
+
+    <uvalib-card horizontal$="{{horizontal}}" elevation$="{{elevation}}" class="card" vertical heading="Services" image="/images/supportengageconnect.jpg">
+        <div class="card-content">
+          <p>Contribute your time, resources, or simply take advantage of access for alumni and community members.</p>
+          <ul>
+            <li><a href="http://www.library.virginia.edu/jobs/">Volunteer Opportunities</a>
+            <li><a href="http://www.library.virginia.edu/services/alumni/">Alumni Services</a>
+            <li><a href="http://www.library.virginia.edu/services/community-patrons/">Community Patrons</a>
+        </div>
+        <div class="card-actions">
+            <uvalib-button href="http://www.library.virginia.edu/support/">Learn More</uvalib-button>
+        </div>
+    </uvalib-card>
+
+  </template>
+  <script>
+    Polymer({
+      is: 'uvalib-engage-card',
+      properties: {
+        elevation: {
+          type: Number,
+          value: 1
+        },
+        horizontal: {
+          type: Boolean,
+          value: false
+        }
+      }
+    });
+  </script>
+</dom-module>
