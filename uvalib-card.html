@@ -25,6 +25,14 @@ Card display component for the Library Web
         }
         --paper-card-actions: {
           border-top: 0px;
+          margin-left: 0px;
+          padding-left: 2px;
+        }
+      }
+      .vertical {
+        --paper-card-actions: {
+          margin-left: 0px;
+          padding-left: 2px;
         }
       }
       .horizontal .header {
@@ -39,13 +47,16 @@ Card display component for the Library Web
         float: right;
         padding: 5px;
       }
+      .horizontal .uvalib-button {
+        text-align: left;
+      }
     </style>
 
     <template is="dom-if" if="{{!horizontal}}">
-      <paper-card heading="{{heading}}"
+      <paper-card class="vertical" heading="{{heading}}"
                   image="{{image}}"
                   elevation="{{elevation}}">
-        <content></content>
+          <content></content>
       </paper-card>
     </template>
     <template is="dom-if" if="{{horizontal}}">
