@@ -25,18 +25,30 @@ Card display component for the Library Web
       .card-content a {
         display: block;
       }
+      .vertical {
+        --paper-card-actions: {
+          margin-left: 0px;
+          padding-left: 2px;
+        }
+      }
+      paper-card.horizontal {
+        --paper-card: { @apply(--layout-horizontal); }
+        --paper-card-header-text: { display:none; }
+      }
+      paper-card.horizontal .section {
+        height: 100%
+        @apply(--layout-vertical);
+      }
+      paper-card.horizontal .card-content {
+        @apply(--layout-flex);
+      }
+      /*
       .horizontal {
         --paper-card-header: {
           float: left;
         }
         --paper-card-actions: {
           border-top: 0px;
-          margin-left: 0px;
-          padding-left: 2px;
-        }
-      }
-      .vertical {
-        --paper-card-actions: {
           margin-left: 0px;
           padding-left: 2px;
         }
@@ -56,8 +68,20 @@ Card display component for the Library Web
       .horizontal .uvalib-button {
         text-align: left;
       }
+      */
     </style>
 
+    <paper-card class$="{{_layoutClass(horizontal)}}"
+                heading="{{heading}}"
+                image="{{image}}"
+                elevation="{{elevation}}">
+        <div class="section">
+          <div class="heading" hidden$="{{!horizontal}}">{{heading}}</div>
+          <content select=".card-content"></content>
+          <content select=".card-actions"></content>
+        </div>
+    </paper-card>
+<!--
     <template is="dom-if" if="{{!horizontal}}">
       <paper-card class="vertical" heading="{{heading}}"
                   image="{{image}}"
@@ -75,7 +99,9 @@ Card display component for the Library Web
         </div>
       </paper-card>
     </template>
+-->
   </template>
+
 
   <script>
     Polymer({
@@ -93,6 +119,11 @@ Card display component for the Library Web
           type: Boolean,
           value: false
         }
+      },
+
+      _layoutClass: function(horizontal){
+        if (horizontal) return "horizontal";
+        else return "vertical";
       }
 
     });
