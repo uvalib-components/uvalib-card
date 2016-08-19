@@ -191,14 +191,7 @@ Card display component for the Library Web
       :host {
         display: block;
       }
-      ul {
-        list-style: none;
-      }
-      li a {
-        text-decoration: none;
-        @apply(--font-card-content)
-      }
-      uvalib-card {
+      uvalib-card[vertical] {
         height: 100%;
       }
     </style>
@@ -252,18 +245,19 @@ Card display component for the Library Web
         text-decoration: none;
         @apply(--font-card-content)
       }
-      uvalib-card {
+      uvalib-card[vertical] {
         height: 100%;
       }
     </style>
 
-    <uvalib-card horizontal$="{{horizontal}}" elevation$="{{elevation}}" class="card" vertical heading="Support, Engage, Connect" image="http://static.lib.virginia.edu/images/card-images/supportengageconnect.jpg">
+    <uvalib-card horizontal$="{{horizontal}}" elevation$="{{elevation}}" class="card" heading="Support, Engage, Connect" image="http://static.lib.virginia.edu/images/card-images/supportengageconnect.jpg">
         <div class="card-content">
           <p>Contribute your time, resources, or simply take advantage of access for alumni and community members.</p>
           <ul>
             <li><a href="http://www.library.virginia.edu/jobs/">Volunteer Opportunities</a>
             <li><a href="http://www.library.virginia.edu/services/alumni/">Alumni Services</a>
             <li><a href="http://www.library.virginia.edu/services/community-patrons/">Community Patrons</a>
+          </ul>
         </div>
         <div class="card-actions">
             <uvalib-button href="http://www.library.virginia.edu/support/">Learn More</uvalib-button>
