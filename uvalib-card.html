@@ -32,15 +32,30 @@ Card display component for the Library Web
         }
       }
       paper-card.horizontal {
-        --paper-card: { @apply(--layout-horizontal); }
-        --paper-card-header-text: { display:none; }
+        --paper-card: {
+          @apply(--layout-horizontal);
+        }
+        --paper-card-header-text: {
+          display:none;
+        }
+        --paper-card-header: {
+          min-width: 300px;
+        }
+      }
+      paper-card.horizontal .heading {
+        padding: 16px;
+        font-weight: bold;
+        font-size: 20px;
       }
       paper-card.horizontal .section {
         height: 100%
         @apply(--layout-vertical);
       }
-      paper-card.horizontal .card-content {
+      paper-card.horizontal ::content .card-content {
         @apply(--layout-flex);
+      }
+      paper-card.horizontal ::content .card-actions {
+        text-align: center;
       }
       /*
       .horizontal {
