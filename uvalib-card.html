@@ -12,7 +12,7 @@ Card display component for the Library Web
 
 <dom-module id="uvalib-card">
   <template>
-    <style is="custom-style">
+    <style is="custom-style" include="uvalib-theme">
       :host {
         display: block;
         --uvalib-card-horizontal-header-max-width: 200px;
@@ -57,33 +57,6 @@ Card display component for the Library Web
       paper-card.horizontal ::content .card-actions {
         text-align: center;
       }
-      /*
-      .horizontal {
-        --paper-card-header: {
-          float: left;
-        }
-        --paper-card-actions: {
-          border-top: 0px;
-          margin-left: 0px;
-          padding-left: 2px;
-        }
-      }
-      .horizontal .header {
-        max-width: var(--uvalib-card-horizontal-header-max-width);
-      }
-      .horizontal .heading {
-        @apply(--font-headline);
-        padding-left: 15px;
-        padding-top: 15px;
-      }
-      .horizontal .content {
-        float: right;
-        padding: 5px;
-      }
-      .horizontal .uvalib-button {
-        text-align: left;
-      }
-      */
     </style>
 
     <paper-card class$="{{_layoutClass(horizontal)}}"
@@ -96,25 +69,6 @@ Card display component for the Library Web
           <content select=".card-actions"></content>
         </div>
     </paper-card>
-<!--
-    <template is="dom-if" if="{{!horizontal}}">
-      <paper-card class="vertical" heading="{{heading}}"
-                  image="{{image}}"
-                  elevation="{{elevation}}">
-          <content></content>
-      </paper-card>
-    </template>
-    <template is="dom-if" if="{{horizontal}}">
-      <paper-card class="horizontal"
-                  image="{{image}}"
-                  elevation="{{elevation}}">
-        <div class="content">
-          <div class="heading">{{heading}}</div>
-          <content></content>
-        </div>
-      </paper-card>
-    </template>
--->
   </template>
 
 
