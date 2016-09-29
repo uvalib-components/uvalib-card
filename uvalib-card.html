@@ -15,7 +15,6 @@ Card display component for the Library Web
     <style is="custom-style" include="uvalib-theme">
       :host {
         display: block;
-        --uvalib-card-horizontal-header-max-width: 200px;
         --paper-card-header-color: var(--color-white);
       }
       paper-card {
@@ -31,59 +30,145 @@ Card display component for the Library Web
           padding-left: 2px;
         }
       }
-      paper-card.horizontal {
-        --paper-card: {
-          @apply(--layout-horizontal);
-          min-height: 235px;
-        }
-        --paper-card-header: {
-        }
-        --paper-card-header-image: {
-          max-width: 175px;
-        }
-        --paper-card-header-text: {
-          display:none;
-        }
-        height: 1vh;
-      }
-      paper-card.horizontal .heading {
-        padding: 16px;
-        font-weight: normal;
-        font-size: 20px;
-        color: var(--color-medium-gray);
-      }
-      paper-card.horizontal .section {
-        height: 100%;
-        @apply(--layout-vertical);
-      }
-      paper-card.horizontal ::content .card-content {
-        @apply(--layout-flex);
-        padding: 0px 16px 10px 16px;
-      }
-      paper-card.horizontal ::content .card-content li {
-        line-height: normal;
-      }
-      paper-card.horizontal ::content .card-content .exhibition-title {
+      /* horizontal specs per Tony's codepen example */
+      .mdl-card {
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -webkit-flex-direction: column;
+        -ms-flex-direction: column;
+        flex-direction: column;
         font-size: 16px;
-        line-height: 18px;
-        font-weight: bold;
-        margin-bottom: 5px;
+        min-height: 200px;
+        overflow: hidden;
+        width: 330px;
+        z-index: 1;
+        position: relative;
+        background: #fff;
+        border-radius: 2px;
+        box-sizing: border-box;
+        -webkit-tap-highlight-color: rgba(255,255,255,0);
       }
-      paper-card.horizontal ::content .card-actions {
+      .mdl-shadow--2dp {
+        box-shadow: 0 2px 2px 0 rgba(0,0,0,.14),0 3px 1px -2px rgba(0,0,0,.2),0 1px 5px 0 rgba(0,0,0,.12);
+      }
+      .mdl-card__media {
+        background-color: rgb(255,64,129);
+        background-repeat: repeat;
+        background-position: 50% 50%;
+        background-size: cover;
+        background-origin: padding-box;
+        background-attachment: scroll;
+        box-sizing: border-box;
+      }
+      .mdl-card__title {
+        -webkit-box-align: center;
+        -webkit-align-items: center;
+        -ms-flex-align: center;
+        align-items: center;
+        color: #000;
+        display: block;
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-pack: stretch;
+        -webkit-justify-content: stretch;
+        -ms-flex-pack: stretch;
+        justify-content: stretch;
+        line-height: normal;
+        padding: 16px;
+        -webkit-perspective-origin: 165px 56px;
+        perspective-origin: 165px 56px;
+        -webkit-transform-origin: 165px 56px;
+        -ms-transform-origin: 165px 56px;
+        transform-origin: 165px 56px;
+        box-sizing: border-box;
+      }
+      .mdl-card__supporting-text {
+          color: rgba(0,0,0,.87);
+          font-size: 13px;
+          line-height: 18px;
+          overflow: hidden;
+          padding: 16px;
+          width: 90%;
+      }
+      .mdl-card__actions {
+          font-size: 16px;
+          line-height: normal;
+          width: 100%;
+          background-color: transparent;
+          padding: 8px;
+          box-sizing: border-box;
+      }
+      .mdl-card__actions .mdl-card--border {
+          border-top: 1px solid rgba(0,0,0,.1);
+      }
+      .mdl-card {
+        min-height: 235px;
         text-align: left;
       }
-    </style>
+      .mdl-card__media img {
+        vertical-align: middle;
+      }
+      .mdl-card--horizontal {
+        flex-direction: column;
+        height: 1vh;
+        padding-left: 175px;
+        width: 100%;
+      }
+      .mdl-card--horizontal .mdl-card__supporting-text {
+        flex: 1 1 auto;
+        width: auto;
+        padding: 0px 16px 10px 16px;
+      }
+      .mdl-card--horizontal .mdl-card__media {
+        left: 0;
+        position: absolute;
+        width: 150px;
+      }
+      .intro-text {
+        color: #343434;
+        font-size: 16px;
+        margin-bottom: 5px;
+      }
+      .mdl-card__title-text {
+        font-size: 20px;
+        color: rgba(0, 0, 0, 0.53);
+      }
+      </style>
 
-    <paper-card class$="{{_layoutClass(horizontal)}}"
-                heading="{{heading}}"
-                image="{{image}}"
-                elevation="{{elevation}}">
-        <div class="section">
-          <div class="heading" hidden$="{{!horizontal}}">{{heading}}</div>
+    <template is="dom-if" if="{{!horizontal}}">
+      <paper-card class$="{{_layoutClass(horizontal)}}"
+                  heading="{{heading}}"
+                  image="{{image}}"
+                  elevation="{{elevation}}">
+          <div class="section">
+            <div class="heading" hidden$="{{!horizontal}}">{{heading}}</div>
+            <content select=".card-content"></content>
+            <content select=".card-actions"></content>
+          </div>
+      </paper-card>
+    </template>
+    <template is="dom-if" if="{{horizontal}}">
+      <div class="mdl-card mdl-shadow--2dp mdl-card--horizontal">
+        <div class="mdl-card__media">
+          <img src="{{image}}" alt="card image">
+        </div>
+        <div class="mdl-card__title">
+          <h2 class="mdl-card__title-text">{{heading}}</h2>
+        </div>
+        <div class="card-content mdl-card__supporting-text">
           <content select=".card-content"></content>
+        </div>
+        <div class="card-actions mdl-card__actions mdl-card--border">
           <content select=".card-actions"></content>
         </div>
-    </paper-card>
+      </div>
+    </template>
   </template>
 
 
