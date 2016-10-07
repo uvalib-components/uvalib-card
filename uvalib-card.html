@@ -107,7 +107,7 @@ Card display component for the Library Web
       <paper-card class$="{{_layoutClass(horizontal)}}"
                   heading="{{heading}}"
                   image="{{image}}"
-                  elevation="{{elevation}}">
+                  elevation="{{elevation}}" alt="">
           <div class="section">
             <div class="heading" hidden$="{{!horizontal}}">{{heading}}</div>
             <content select=".card-content"></content>
@@ -119,7 +119,7 @@ Card display component for the Library Web
       <paper-material elevation$="{{elevation}}">
         <div class="hz-card hz-card--horizontal">
           <div class="hz-card__media">
-            <img src="{{image}}" alt="card image">
+            <img src="{{image}}" alt="">
           </div>
           <div class="hz-card__content">
             <div class="hz-card__title">
