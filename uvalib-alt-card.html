@@ -33,10 +33,7 @@ Card display component for the Library Web
       }
       /* horizontal specs per Tony's codepen example */
       .hz-card {
-        display: -webkit-flex;
-        display: -ms-flexbox;
-        display: flex;
-        position: relative;
+        @apply(--layout-horizontal);
         background-color: #fff;
         border-radius: 2px;
         box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
@@ -49,24 +46,11 @@ Card display component for the Library Web
         @apply(--paper-card-header-image);
         display: block;
         border-radius: 2px 0 0 2px;
-        position: relative;
-        left: 0;
-        right: 0;
-        top: 0;
-        bottom: 0;
-/*        max-width: 235px; */
+        height: 100%;
+        max-width: 235px;
       }
       .hz-card__content {
-        display: -webkit-flex;
-        display: -ms-flexbox;
-        display: flex;
-        -webkit-flex-direction: column;
-        -ms-flex-direction: column;
-        flex-direction: column;
-        -webkit-flex: 1;
-        -ms-flex: 1;
-        flex: 1;
-        position: relative;
+        @apply(--layout-flex);
         border-radius: 0 0 2px 2px;
       }
       .hz-card__title {
