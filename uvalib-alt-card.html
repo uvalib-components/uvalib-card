@@ -3,6 +3,7 @@
 <link rel="import" href="../iron-flex-layout/iron-flex-layout.html">
 <link rel="import" href="../paper-material/paper-material.html">
 <link rel="import" href="../uvalib-theme/uvalib-theme.html">
+<link rel="import" href="../iron-image/iron-image.html">
 
 <!--
 `uvalib-card`
@@ -31,56 +32,28 @@ Card display component for the Library Web
           padding-left: 2px;
         }
       }
-      /* horizontal specs per Tony's codepen example */
-      .hz-card {
+
+
+      .horiz {
         @apply(--layout-horizontal);
-        background-color: #fff;
-        border-radius: 2px;
-        box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
       }
-      .hz-card .hz-card__media {
-        max-width: 50%;
-        position: relative;
-      }
-      .hz-card .hz-card__media img {
-        @apply(--paper-card-header-image);
-        display: block;
-        border-radius: 2px 0 0 2px;
-        height: 100%;
-        max-width: 235px;
-      }
-      .hz-card__content {
+      .vertBox {
         @apply(--layout-flex);
         @apply(--layout-vertical);
-        border-radius: 0 0 2px 2px;
+        padding-left: 15px;
+        padding-top: 10px;
       }
-      .hz-card__title {
-        font-size: 20px;
-        color: rgba(0, 0, 0, 0.53);
-        padding: 15px 0px 15px 20px;
+      iron-image {
+        height: 100%;
       }
-      .hz-card__content ::content .card-content {
-        padding: 0px 20px 0px 20px;
-        font-size: 14px;
+      paper-material {
+        height: 142px;
       }
-      .hz-card__content ::content .card-content ul {
-        list-style: none;
-        margin-top: 0px;
+      .content {
+        @apply(--layout-flex);
       }
-      .hz-card__content ::content .card-content li a {
-        text-decoration: none;
-        @apply(--font-card-content);
-      }
-
-      .hz-card__content ::content .card-actions {
-        position: relative;
-        background-color: inherit;
-        border-top: 1px solid rgba(160, 160, 160, 0.2);
-        padding: 20px;
-      }
-      
-      .hz-card__content ::content .card-actions a {
-        text-decoration: none;
+      .heading {
+        @apply(--font-headline);
       }
       </style>
 
@@ -90,24 +63,18 @@ Card display component for the Library Web
                   image="{{image}}"
                   elevation="{{elevation}}" alt="">
           <div class="section">
-            <div class="heading" hidden$="{{!horizontal}}">{{heading}}</div>
+            <div class="heading">{{heading}}</div>
             <content select=".card-content"></content>
             <content select=".card-actions"></content>
           </div>
       </paper-card>
     </template>
     <template is="dom-if" if="{{horizontal}}">
-      <paper-material elevation$="{{elevation}}">
-        <div class="hz-card hz-card--horizontal">
-          <div class="hz-card__media">
-            <img src="{{image}}" alt="">
-          </div>
-          <div class="hz-card__content">
-            <div class="hz-card__title">
-              {{heading}}
-            </div>
-            <content></content>
-          </div>
+      <paper-material class="horiz" elevation$="{{elevation}}">
+        <iron-image class="img" src="{{image}}"></iron-image>
+        <div class="vertBox">
+          <div class="heading">{{heading}}</div>
+          <div class="content"><content></content></div>
         </div>
       </paper-material>
     </template>

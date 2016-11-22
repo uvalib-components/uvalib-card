@@ -9,7 +9,8 @@
     "uvalib-theme": "uvalib-components/uvalib-theme#master",
     "iron-ajax": "PolymerElements/iron-ajax#^1.4.3",
     "uvalib-helper-libs": "uvalib-components/uvalib-helper-libs#master",
-    "paper-material": "PolymerElements/paper-material#^1.0.6"
+    "paper-material": "PolymerElements/paper-material#^1.0.6",
+    "iron-image": "PolymerElements/iron-image#^1.2.5"
   },
   "devDependencies": {
     "iron-component-page": "PolymerElements/iron-component-page#^1.1.7",
