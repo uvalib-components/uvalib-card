@@ -1,0 +1,162 @@
+<link rel="import" href="../polymer/polymer.html">
+<link rel="import" href="../paper-card/paper-card.html">
+<link rel="import" href="../iron-flex-layout/iron-flex-layout.html">
+<link rel="import" href="../paper-material/paper-material.html">
+<link rel="import" href="../uvalib-theme/uvalib-theme.html">
+
+<!--
+`uvalib-card`
+Card display component for the Library Web
+
+@demo demo/index.html
+-->
+
+<dom-module id="uvalib-card">
+  <template>
+    <style is="custom-style" include="uvalib-theme">
+      :host {
+        display: block;
+        --paper-card-header-color: var(--color-white);
+      }
+      paper-card {
+        width: 100%;
+        --paper-card-background-color: var(--uvalib-card-background-color,--color-white);
+      }
+      .card-content a {
+        display: block;
+      }
+      .vertical {
+        --paper-card-actions: {
+          margin-left: 0px;
+          padding-left: 2px;
+        }
+      }
+      /* horizontal specs per Tony's codepen example */
+      .hz-card {
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        position: relative;
+        background-color: #fff;
+        border-radius: 2px;
+        box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+      }
+      .hz-card .hz-card__media {
+        max-width: 50%;
+        position: relative;
+      }
+      .hz-card .hz-card__media img {
+        @apply(--paper-card-header-image);
+        display: block;
+        border-radius: 2px 0 0 2px;
+        position: relative;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+/*        max-width: 235px; */
+      }
+      .hz-card__content {
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-flex-direction: column;
+        -ms-flex-direction: column;
+        flex-direction: column;
+        -webkit-flex: 1;
+        -ms-flex: 1;
+        flex: 1;
+        position: relative;
+        border-radius: 0 0 2px 2px;
+      }
+      .hz-card__title {
+        -webkit-flex-grow: 0;
+        -ms-flex-positive: 0;
+        flex-grow: 0;
+        font-size: 20px;
+        color: rgba(0, 0, 0, 0.53);
+        padding: 15px 0px 15px 20px;
+      }
+      .hz-card__content ::content .card-content {
+        -webkit-flex-grow: 1;
+        -ms-flex-positive: 1;
+        flex-grow: 1;
+        padding: 0px 20px 0px 20px;
+        font-size: 14px;
+      }
+      .hz-card__content ::content .card-content ul {
+        list-style: none;
+        margin-top: 0px;
+      }
+      .hz-card__content ::content .card-content li a {
+        text-decoration: none;
+        @apply(--font-card-content);
+      }
+
+      .hz-card__content ::content .card-actions {
+        position: relative;
+        background-color: inherit;
+        border-top: 1px solid rgba(160, 160, 160, 0.2);
+        padding: 20px;
+      }
+      .hz-card__content ::content .card-actions a {
+        text-decoration: none;
+      }
+      </style>
+
+    <template is="dom-if" if="{{!horizontal}}">
+      <paper-card class$="{{_layoutClass(horizontal)}}"
+                  heading="{{heading}}"
+                  image="{{image}}"
+                  elevation="{{elevation}}" alt="">
+          <div class="section">
+            <div class="heading" hidden$="{{!horizontal}}">{{heading}}</div>
+            <content select=".card-content"></content>
+            <content select=".card-actions"></content>
+          </div>
+      </paper-card>
+    </template>
+    <template is="dom-if" if="{{horizontal}}">
+      <paper-material elevation$="{{elevation}}">
+        <div class="hz-card hz-card--horizontal">
+          <div class="hz-card__media">
+            <img src="{{image}}" alt="">
+          </div>
+          <div class="hz-card__content">
+            <div class="hz-card__title">
+              {{heading}}
+            </div>
+            <content></content>
+          </div>
+        </div>
+      </paper-material>
+    </template>
+  </template>
+
+
+  <script>
+    Polymer({
+
+      is: 'uvalib-card',
+
+      properties: {
+        heading: String,
+        image: String,
+        elevation: {
+          type: Number,
+          value: 1
+        },
+        horizontal: {
+          type: Boolean,
+          value: false
+        }
+      },
+
+      _layoutClass: function(horizontal){
+        if (horizontal) return "horizontal";
+        else return "vertical";
+      }
+
+    });
+  </script>
+</dom-module>
