@@ -1,187 +1,267 @@
+<!--
+@license
+Copyright (c) 2015 The Polymer Project Authors. All rights reserved.
+This code may only be used under the BSD style license found at http://polymer.github.io/LICENSE.txt
+The complete set of authors may be found at http://polymer.github.io/AUTHORS.txt
+The complete set of contributors may be found at http://polymer.github.io/CONTRIBUTORS.txt
+Code distributed by Google as part of the polymer project is also
+subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
+-->
+
 <link rel="import" href="../polymer/polymer.html">
-<link rel="import" href="../paper-card/paper-card.html">
 <link rel="import" href="../iron-flex-layout/iron-flex-layout.html">
+<link rel="import" href="../iron-image/iron-image.html">
 <link rel="import" href="../paper-material/paper-material.html">
+<link rel="import" href="../paper-styles/default-theme.html">
+
 <link rel="import" href="../uvalib-theme/uvalib-theme.html">
 
 <!--
-`uvalib-card`
-Card display component for the Library Web
+Material design: [Cards](https://www.google.com/design/spec/components/cards.html)
 
+`uvalib-card` is a container with a drop shadow.
+
+Example:
+
+    <uvalib-card heading="Card Title">
+      <div class="card-content">Some content</div>
+      <div class="card-actions">
+        <paper-button>Some action</paper-button>
+      </div>
+    </uvalib-card>
+
+Example - top card image:
+
+    <uvalib-card heading="Card Title" image="/path/to/image.png" alt="image">
+      ...
+    </uvalib-card>
+
+### Accessibility
+
+By default, the `aria-label` will be set to the value of the `heading` attribute.
+
+### Styling
+
+The following custom properties and mixins are available for styling:
+
+Custom property | Description | Default
+----------------|-------------|----------
+`--uvalib-card-background-color` | The background color of the card | `--primary-background-color`
+`--uvalib-card-header-color` | The color of the header text | `#000`
+`--uvalib-card-header` | Mixin applied to the card header section | `{}`
+`--uvalib-card-header-text` | Mixin applied to the title in the card header section | `{}`
+`--uvalib-card-header-image` | Mixin applied to the image in the card header section | `{}`
+`--uvalib-card-header-image-text` | Mixin applied to the text overlapping the image in the card header section | `{}`
+`--uvalib-card-content` | Mixin applied to the card content section| `{}`
+`--uvalib-card-actions` | Mixin applied to the card action section | `{}`
+`--uvalib-card` | Mixin applied to the card | `{}`
+
+@group Paper Elements
+@element uvalib-card
 @demo demo/index.html
 -->
 
 <dom-module id="uvalib-card">
   <template>
-    <style is="custom-style" include="uvalib-theme">
+    <style include="paper-material uvalib-theme">
       :host {
-        display: block;
-        --paper-card-header: {
-          font-family: var(--font-primary);
-          font-size: 24px;
-          font-weight: 500;
-          font-style: normal;
-          font-stretch: normal;
-          line-height: 1.33;
-          letter-spacing: normal;
-          color: rgba(0, 0, 0, 0.54);
-          padding: 0;
-        }
-        --paper-card-header-color: rgba(0, 0, 0, 0.54);
-        --paper-card-content: {
-          font-family: var(--font-primary);
-          font-size: 16px !important;
-          font-weight: normal;
-          font-style: normal;
-          font-stretch: normal;
-          line-height: normal;
-          letter-spacing: normal;
-          text-align: left;
-          color: #2979ff;
-          padding-top: 0;
-          padding-bottom: 0;
-        }
-      }
-      paper-card {
-        width: 100%;
-        height: 100%;
-        --paper-card-background-color: var(--uvalib-card-background-color,--color-white);
-      }
-      .card-content a {
-        display: block;
-      }
-      .vertical {
-        --paper-card-actions: {
-          margin-left: 0px;
-          padding-left: 2px;
-        }
-      }
-      /* horizontal specs per Tony's codepen example */
-      .hz-card {
-        display: -webkit-flex;
-        display: -ms-flexbox;
-        display: flex;
+        display: inline-block;
         position: relative;
-        background-color: #fff;
+        box-sizing: border-box;
+        background-color: var(--uvalib-card-background-color, --primary-background-color);
         border-radius: 2px;
-        box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+
+        @apply(--paper-font-common-base);
+        @apply(--uvalib-card);
       }
-      .hz-card .hz-card__media {
-        max-width: 50%;
+
+      /* IE 10 support for HTML5 hidden attr */
+      [hidden] {
+        display: none !important;
+      }
+
+      .header {
         position: relative;
+        border-top-left-radius: inherit;
+        border-top-right-radius: inherit;
+        overflow: hidden;
+
+        @apply(--uvalib-card-header);
       }
-      .hz-card .hz-card__media img {
-        @apply(--paper-card-header-image);
+
+      .header iron-image {
         display: block;
-        border-radius: 2px 0 0 2px;
-        position: relative;
-        left: 0;
-        right: 0;
-        top: 0;
-        bottom: 0;
-        max-width: 235px;
-      }
-      .hz-card__content {
-        display: -webkit-flex;
-        display: -ms-flexbox;
-        display: flex;
-        -webkit-flex-direction: column;
-        -ms-flex-direction: column;
-        flex-direction: column;
-        -webkit-flex: 1;
-        -ms-flex: 1;
-        flex: 1;
-        position: relative;
-        border-radius: 0 0 2px 2px;
-      }
-      .hz-card__title {
-        -webkit-flex-grow: 0;
-        -ms-flex-positive: 0;
-        flex-grow: 0;
-        font-size: 20px;
-        color: rgba(0, 0, 0, 0.53);
-        padding: 15px 0px 15px 20px;
-      }
-      .hz-card__content ::content .card-content {
-        -webkit-flex-grow: 1;
-        -ms-flex-positive: 1;
-        flex-grow: 1;
-        padding: 0px 0px 0px 0px;
-        font-size: 16px;
-      }
-      .hz-card__content ::content .card-content ul {
-        list-style: none;
-        margin-top: 0px;
-      }
-      .hz-card__content ::content .card-content li a {
-        text-decoration: none;
-        @apply(--font-card-content);
+        width: 100%;
+        --iron-image-width: 100%;
+        pointer-events: none;
+
+        @apply(--uvalib-card-header-image);
       }
 
-      .hz-card__content ::content .card-actions {
-        position: relative;
-        background-color: inherit;
-        border-top: 1px solid rgba(160, 160, 160, 0.2);
-        padding: 20px;
-      }
-      .hz-card__content ::content .card-actions a {
-        text-decoration: none;
-      }
-      </style>
+      .header .title-text {
+/*
+        padding: 16px;
+        font-size: 24px;
+        font-weight: 400;
+        color: var(--uvalib-card-header-color, #000);
+*/
+        padding: 11px 25.5px 0 25.5px;
+        font-family: var(--font-primary);
+        font-size: 24px;
+        font-weight: 500;
+        font-style: normal;
+        font-stretch: normal;
+        line-height: 1.33;
+        letter-spacing: normal;
+        color: rgba(0, 0, 0, 0.54);
 
-    <template is="dom-if" if="{{!horizontal}}">
-      <paper-card class$="{{_layoutClass(horizontal)}}"
-                  heading="{{heading}}"
-                  image="{{image}}"
-                  elevation="{{elevation}}" alt="">
-          <div class="section">
-            <div class="heading" hidden$="{{!horizontal}}">{{heading}}</div>
-            <content select=".card-content"></content>
-            <content select=".card-actions"></content>
-          </div>
-      </paper-card>
-    </template>
-    <template is="dom-if" if="{{horizontal}}">
-      <paper-material elevation$="{{elevation}}">
-        <div class="hz-card hz-card--horizontal">
-          <div class="hz-card__media">
-            <img src="{{image}}" alt="">
-          </div>
-          <div class="hz-card__content">
-            <div class="hz-card__title">
-              {{heading}}
-            </div>
-            <content></content>
-          </div>
-        </div>
-      </paper-material>
-    </template>
+        @apply(--uvalib-card-header-text);
+      }
+
+      .header .title-text.over-image {
+        position: absolute;
+        bottom: 0px;
+
+        @apply(--uvalib-card-header-image-text);
+      }
+
+      :host ::content .card-content {
+        padding: 16px 25.5px 10px 25.5px;
+        position: relative;
+
+        @apply(--uvalib-card-content);
+      }
+
+      :host ::content .card-actions {
+        border-top: 1px solid #e8e8e8;
+        padding: 5px 16px;
+        position:relative;
+
+        @apply(--uvalib-card-actions);
+      }
+    </style>
+
+    <div class="header">
+      <iron-image
+          hidden$="[[!image]]"
+          aria-hidden$="[[_isHidden(image)]]"
+          src="[[image]]"
+          alt="[[alt]]"
+          placeholder="[[placeholderImage]]"
+          preload="[[preloadImage]]"
+          fade="[[fadeImage]]"></iron-image>
+      <div hidden$="[[!heading]]" class$="title-text [[_computeHeadingClass(image)]]">[[heading]]</div>
+    </div>
+
+    <content></content>
   </template>
-
 
   <script>
     Polymer({
-
       is: 'uvalib-card',
 
       properties: {
-        heading: String,
-        image: String,
-        elevation: {
-          type: Number,
-          value: 1
+        /**
+         * The title of the card.
+         */
+        heading: {
+          type: String,
+          value: '',
+          observer: '_headingChanged'
         },
-        horizontal: {
+
+        /**
+         * The url of the title image of the card.
+         */
+        image: {
+          type: String,
+          value: ''
+        },
+
+        /**
+         * The text alternative of the card's title image.
+         */
+        alt: {
+          type: String
+        },
+
+        /**
+         * When `true`, any change to the image url property will cause the
+         * `placeholder` image to be shown until the image is fully rendered.
+         */
+        preloadImage: {
           type: Boolean,
           value: false
+        },
+
+        /**
+         * When `preloadImage` is true, setting `fadeImage` to true will cause the
+         * image to fade into place.
+         */
+        fadeImage: {
+          type: Boolean,
+          value: false
+        },
+
+        /**
+         * This image will be used as a background/placeholder until the src image has
+         * loaded. Use of a data-URI for placeholder is encouraged for instant rendering.
+         */
+        placeholderImage: {
+          type: String,
+          value: null
+        },
+
+        /**
+         * The z-depth of the card, from 0-5.
+         */
+        elevation: {
+          type: Number,
+          value: 1,
+          reflectToAttribute: true
+        },
+
+        /**
+         * Set this to true to animate the card shadow when setting a new
+         * `z` value.
+         */
+        animatedShadow: {
+          type: Boolean,
+          value: false
+        },
+
+        /**
+         * Read-only property used to pass down the `animatedShadow` value to
+         * the underlying paper-material style (since they have different names).
+         */
+        animated: {
+          type: Boolean,
+          reflectToAttribute: true,
+          readOnly: true,
+          computed: '_computeAnimated(animatedShadow)'
         }
       },
 
-      _layoutClass: function(horizontal){
-        if (horizontal) return "horizontal";
-        else return "vertical";
-      }
+      /**
+       * Format function for aria-hidden. Use the ! operator results in the
+       * empty string when given a falsy value.
+       */
+      _isHidden: function(image) {
+        return image ? 'false' : 'true';
+      },
 
+      _headingChanged: function(heading) {
+        var label = this.getAttribute('aria-label');
+        this.setAttribute('aria-label', heading);
+      },
+
+      _computeHeadingClass: function(image) {
+        return image ? ' over-image' : '';
+      },
+
+      _computeAnimated: function(animatedShadow) {
+        return animatedShadow;
+      }
     });
   </script>
 </dom-module>

@@ -20,67 +20,24 @@
   <body unresolved>
 
     <div class="vertical-section-container">
-      <h3>Basic uvalib-card Demo</h3>
-      <demo-snippet>
-        <template>
-
-          <style>
-            uvalib-card {
-              margin-bottom: 20px;
-            }
-          </style>
-
-          <uvalib-card heading="Card Title"  image="https://static.lib.virginia.edu/images/services_image.png">
-            <div class="card-content">Some Content</div>
-            <div class="card-actions">
-              <uvalib-button>Some Action</uvalib-button>
-            </div>
-          </uvalib-card>
-
-          <uvalib-card horizontal heading="Horizontal Card"  image="https://static.lib.virginia.edu/images/spaces_image.png">
-            <div class="card-content">This is some content. No border between content and actions.</div>
-            <div class="card-actions">
-              <uvalib-button>Action</uvalib-button>
-            </div>
-          </uvalib-card>
-
-          <uvalib-card elevation="0" heading="Card Title">
-            <div class="card-content">Some Content</div>
-            <div class="card-actions">
-              <uvalib-button>Some Action</uvalib-button>
-            </div>
-          </uvalib-card>
-
-          <uvalib-card style="max-width: 500px" image="https://static.lib.virginia.edu/images/spaces_image.png">
-            This is some lonly content.
-          </uvalib-card>
-
-        </template>
-      </demo-snippet>
-    </div>
-
-    <div class="vertical-section-container">
       <h3>uvalib-custom-cards Demo</h3>
       <demo-snippet>
         <template>
-          <uvalib-research-card></uvalib-research-card>
-          <uvalib-spaces-card></uvalib-spaces-card>
-          <uvalib-services-card></uvalib-services-card>
-          <uvalib-featured-exhibit-card></uvalib-featured-exhibit-card>
-          <uvalib-engage-card></uvalib-engage-card>
-        </template>
-      </demo-snippet>
-    </div>
-
-    <div class="vertical-section-container">
-      <h3>uvalib-custom-cards horizontal Demo</h3>
-      <demo-snippet>
-        <template>
-          <uvalib-research-card horizontal></uvalib-research-card>
-          <uvalib-spaces-card horizontal></uvalib-spaces-card>
-          <uvalib-services-card horizontal></uvalib-services-card>
-          <uvalib-featured-exhibit-card horizontal></uvalib-featured-exhibit-card>
-          <uvalib-engage-card horizontal></uvalib-engage-card>
+        <style is="custom-style">
+          uvalib-card {
+            
+          }
+          uvalib-services-card[darker] {
+            --uvalib-card-background-color: #f5f5f5;
+          }
+          .card {
+            margin-bottom: 20px;
+          }
+        </style>
+          <uvalib-research-card class="card"></uvalib-research-card>
+          <uvalib-spaces-card class="card"></uvalib-spaces-card>
+          <uvalib-services-card class="card"></uvalib-services-card>
+          <uvalib-services-card class="card" darker></uvalib-services-card>
         </template>
       </demo-snippet>
     </div>
