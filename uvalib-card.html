@@ -114,14 +114,14 @@ Custom property | Description | Default
         @apply(--uvalib-card-header-image);
       }
 
-      :host[horizontal] .header {
+      :host #wrapper[horizontal] .header {
         width: 185px;
       }
-      :host[small-screen] .header {
+      :host #wrapper[small-screen] .header {
         width: 121px;
       }
 
-      :host[horizontal] .header iron-image {
+      :host #wrapper[horizontal] .header iron-image {
         width: auto;
         --iron-image-width: auto;
         height: 100%;
@@ -161,11 +161,11 @@ Custom property | Description | Default
         color: rgba(0, 0, 0, 0.54);
       }
 
-      :host[horizontal] #content {
+      :host #wrapper[horizontal] #content {
         @apply(--layout-flex);
       }
 
-      :host[small-screen] #content .title-text {
+      :host #wrapper[small-screen] #content .title-text {
         font-size: 15px;
         line-height: 1.33;
       }
@@ -178,7 +178,7 @@ Custom property | Description | Default
         @apply(--uvalib-card-content);
       }
 
-      :host[horizontal] ::content .card-content {
+      :host #wrapper[horizontal] ::content .card-content {
         padding: 18px 12px 0 12px;
       }
 
@@ -204,7 +204,7 @@ Custom property | Description | Default
       }
     </style>
 
-    <div id="wrapper" horizontal$="[[horizontal]]">
+    <div id="wrapper" horizontal$="[[horizontal]]" small-screen$="[[smallScreen]]">
       <div class="header">
         <iron-image
             hidden$="[[!image]]"
