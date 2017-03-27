@@ -79,6 +79,14 @@ Custom property | Description | Default
         @apply(--uvalib-card);
       }
 
+      :host[horizontal] {
+        @apply(--layout-horizontal);
+      }
+
+      #content {
+        @apply(--layout-vertical);
+      }
+
       /* IE 10 support for HTML5 hidden attr */
       [hidden] {
         display: none !important;
@@ -102,13 +110,18 @@ Custom property | Description | Default
         @apply(--uvalib-card-header-image);
       }
 
+      :host[horizontal] .header {
+        width: 121px;
+      }
+
+      :host[horizontal] .header iron-image {
+        width: auto;
+        --iron-image-width: auto;
+        height: 100%;
+        --iron-image-height: 100%;
+      }
+
       .header .title-text {
-/*
-        padding: 16px;
-        font-size: 24px;
-        font-weight: 400;
-        color: var(--uvalib-card-header-color, #000);
-*/
         padding: 11px 25.5px 0 25.5px;
         font-family: var(--font-primary);
         font-size: 24px;
@@ -129,6 +142,27 @@ Custom property | Description | Default
         @apply(--uvalib-card-header-image-text);
       }
 
+      #content .title-text {
+        padding: 9px 12px 0 12px;
+        font-family: var(--font-primary);
+        font-size: 20px;
+        font-weight: 500;
+        font-style: normal;
+        font-stretch: normal;
+        line-height: 1;
+        letter-spacing: normal;
+        color: rgba(0, 0, 0, 0.54);
+      }
+
+      :host[horizontal] #content {
+        @apply(--layout-flex);
+      }
+
+      :host[small-screen] #content .title-text {
+        font-size: 15px;
+        line-height: 1.33;
+      }
+
       :host ::content .card-content {
         padding: 16px 25.5px 10px 25.5px;
         position: relative;
@@ -137,12 +171,29 @@ Custom property | Description | Default
         @apply(--uvalib-card-content);
       }
 
+      :host[horizontal] ::content .card-content {
+        padding: 18px 12px 0 12px;
+      }
+
       :host ::content .card-actions {
         border-top: 1px solid #e8e8e8;
         padding: 5px 16px;
         position:relative;
 
         @apply(--uvalib-card-actions);
+      }
+
+      :host #content ::content .card-content h3 {
+        margin: 0;
+        font-family: var(--font-primary);
+        font-size: 16px;
+        font-weight: normal;
+        font-style: normal;
+        font-stretch: normal;
+        line-height: normal;
+        letter-spacing: normal;
+        text-align: left;
+        color: rgba(52, 52, 52, 0.87);
       }
     </style>
 
@@ -155,10 +206,13 @@ Custom property | Description | Default
           placeholder="[[placeholderImage]]"
           preload="[[preloadImage]]"
           fade="[[fadeImage]]"></iron-image>
-      <div hidden$="[[!heading]]" class$="title-text [[_computeHeadingClass(image)]]">[[heading]]</div>
+      <div hidden$="[[!_imageHeading(heading,horizontal)]]" class$="title-text [[_computeHeadingClass(image)]]">[[heading]]</div>
     </div>
 
-    <content></content>
+    <div id="content">
+      <div hidden$="[[_imageHeading(heading,horizontal)]]" class$="title-text [[_computeHeadingClass(image)]]">[[heading]]</div>
+      <content></content>
+    </div>
   </template>
 
   <script>
@@ -244,7 +298,29 @@ Custom property | Description | Default
           reflectToAttribute: true,
           readOnly: true,
           computed: '_computeAnimated(animatedShadow)'
+        },
+
+        /**
+         * Horizontal card layout
+         */
+        horizontal: {
+          type: Boolean,
+          reflectToAttribute: true,
+          value: false
+        },
+
+        /**
+         * Card to be displayed on a small screen device (phone sized)
+         */
+        smallScreen: {
+          type: Boolean,
+          reflectToAttribute: true,
+          value: false
         }
+      },
+
+      _imageHeading: function(heading, horizontal){
+        return (heading && !horizontal);
       },
 
       /**

@@ -23,21 +23,37 @@
       <h3>uvalib-custom-cards Demo</h3>
       <demo-snippet>
         <template>
-        <style is="custom-style">
-          uvalib-card {
-            
-          }
-          uvalib-services-card[darker] {
-            --uvalib-card-background-color: #f5f5f5;
-          }
-          .card {
-            margin-bottom: 20px;
-          }
-        </style>
+          <style is="custom-style">
+            uvalib-card {
+
+            }
+
+            .card {
+              margin-bottom: 20px;
+            }
+          </style>
           <uvalib-research-card class="card"></uvalib-research-card>
           <uvalib-spaces-card class="card"></uvalib-spaces-card>
-          <uvalib-services-card class="card"></uvalib-services-card>
-          <uvalib-services-card class="card" darker></uvalib-services-card>
+        </template>
+      </demo-snippet>
+    </div>
+
+    <div class="vertical-section-container">
+      <h3>Horizontal cards example</h3>
+      <demo-snippet>
+        <template is="dom-bind">
+          <style is="custom-style">
+            uvalib-card {
+
+            }
+
+            .card {
+              margin-bottom: 20px;
+            }
+          </style>
+          <iron-media-query query="(max-width: 600px)" query-matches="{{smallScreen}}"></iron-media-query>
+          <uvalib-featured-exhibit-card class="card" horizontal small-screen$="{{smallScreen}}"></uvalib-featured-exhibit-card>
+          <uvalib-engage-card class="card" horizontal small-screen$="{{smallScreen}}"></uvalib-engage-card>
         </template>
       </demo-snippet>
     </div>

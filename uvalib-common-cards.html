@@ -64,70 +64,6 @@ Card display component for the Library Web
 </dom-module>
 
 <!--
-`uvalib-services-card`
-Card display component for the Library Web
-
-@demo demo/index.html
--->
-
-<dom-module id="uvalib-services-card">
-  <template>
-    <style is="custom-style" include="uvalib-theme">
-      :host {
-        display: block;
-      }
-      ul {
-        list-style: none;
-        padding: 0;
-        margin: 0;
-      }
-      li a {
-        text-decoration: none;
-        @apply(--font-card-content);
-      }
-      uvalib-card {
-        height: 100%;
-      }
-      uvalib-card {
-
-      }
-    </style>
-
-    <uvalib-card horizontal$="{{horizontal}}" elevation$="{{elevation}}" class="card" vertical heading="Services">
-        <div class="card-content">
-          <ul>
-            <li><a href="http://www.library.virginia.edu/services/ils/ill/">Interlibrary loans &amp; LEO delivery</a>
-            <li><a href="http://guides.lib.virginia.edu/subjectlibrarians">Ask a subject specialist</a>
-            <li><a href="http://www.library.virginia.edu/services/purchase-request/">Purchase request</a>
-            <li><a href="http://www.library.virginia.edu/services/off-grounds-access/">Off-Grounds access</a>
-            <li><a href="http://www.library.virginia.edu/services/accessibility-services/">Accessibility</a>
-            <li><a href="http://www.library.virginia.edu/services/classes/">Schedule a class</a>
-          </ul>
-        </div>
-        <div class="card-actions">
-            <uvalib-button href="http://www.library.virginia.edu/services/">More services</uvalib-button>
-        </div>
-    </uvalib-card>
-
-  </template>
-  <script>
-    Polymer({
-      is: 'uvalib-services-card',
-      properties: {
-        elevation: {
-          type: Number,
-          value: 1
-        },
-        horizontal: {
-          type: Boolean,
-          value: false
-        }
-      }
-    });
-  </script>
-</dom-module>
-
-<!--
 `uvalib-featured-exhibit-card`
 Card display component for the Library Web
 
@@ -147,7 +83,8 @@ Card display component for the Library Web
 
     <uvalib-card horizontal$="{{horizontal}}" elevation$="{{elevation}}" class="card" heading="Exhibition Spotlight" image="https://static.lib.virginia.edu/images/card-images/anne-spencer.jpg">
         <div class="card-content">
-          Sacred Spaces: The Home and Poetry of Anne Spencer, an exhibition on the first floor gallery of the Albert and Shirley Small Special Collections Library through Dec. 30, 2016.
+          <h3>Sacred Spaces: The Home and Poetry of Anne Spencer</h3>
+          <p>An exhibition on the first floor gallery of the Albert and Shirley Small Special Collections Library through Dec. 30, 2016.</p>
         </div>
         <div class="card-actions">
             <uvalib-button href="http://news.library.virginia.edu/2016/09/12/uva-exhibiton-sacred-spaces-the-home-and-poetry-of-anne-spencer-featured-in-lynchburg-paper/">Read More</uvalib-button>
