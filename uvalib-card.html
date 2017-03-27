@@ -70,16 +70,20 @@ Custom property | Description | Default
         box-sizing: border-box;
         background-color: var(--uvalib-card-background-color, --primary-background-color);
         border-radius: 2px;
-
+        width: 100%;
         border: solid 1px #e0e0e0;
-
+/*
         @apply(--layout-vertical);
-
+*/
         @apply(--paper-font-common-base);
         @apply(--uvalib-card);
       }
 
-      :host[horizontal] {
+      :host #wrapper {
+        @apply(--layout-vertical);
+      }
+
+      :host #wrapper[horizontal] {
         @apply(--layout-horizontal);
       }
 
@@ -200,21 +204,23 @@ Custom property | Description | Default
       }
     </style>
 
-    <div class="header">
-      <iron-image
-          hidden$="[[!image]]"
-          aria-hidden$="[[_isHidden(image)]]"
-          src="[[image]]"
-          alt="[[alt]]"
-          placeholder="[[placeholderImage]]"
-          preload="[[preloadImage]]"
-          fade="[[fadeImage]]"></iron-image>
-      <div hidden$="[[!_imageHeading(heading,horizontal)]]" class$="title-text [[_computeHeadingClass(image)]]">[[heading]]</div>
-    </div>
+    <div id="wrapper" horizontal$="[[horizontal]]">
+      <div class="header">
+        <iron-image
+            hidden$="[[!image]]"
+            aria-hidden$="[[_isHidden(image)]]"
+            src="[[image]]"
+            alt="[[alt]]"
+            placeholder="[[placeholderImage]]"
+            preload="[[preloadImage]]"
+            fade="[[fadeImage]]"></iron-image>
+        <div hidden$="[[!_imageHeading(heading,horizontal)]]" class$="title-text [[_computeHeadingClass(image)]]">[[heading]]</div>
+      </div>
 
-    <div id="content">
-      <div hidden$="[[_imageHeading(heading,horizontal)]]" class$="title-text [[_computeHeadingClass(image)]]">[[heading]]</div>
-      <content></content>
+      <div id="content">
+        <div hidden$="[[_imageHeading(heading,horizontal)]]" class$="title-text [[_computeHeadingClass(image)]]">[[heading]]</div>
+        <content></content>
+      </div>
     </div>
   </template>
 
