@@ -4,5 +4,29 @@
   "main": "uvalib-card.html",
   "dependencies": {
     "uvalib-elements": "uvalib-components/uvalib-elements#latest"
+  },
+  "resolutions": {
+    "uvalib-elements": "master",
+    "uvalib-analytics": "master",
+    "uvalib-banner": "master",
+    "polymer": "^1.8.1",
+    "uvalib-events-card": "master",
+    "uvalib-button": "master",
+    "uvalib-alerts": "master",
+    "uvalib-header": "master",
+    "uvalib-card": "master",
+    "uvalib-hours-card": "master",
+    "uvalib-logos": "master",
+    "uvalib-nav": "master",
+    "uvalib-liame": "master",
+    "uvalib-models": "master",
+    "uvalib-footer": "master",
+    "uvalib-search-box": "master",
+    "uvalib-news-section": "master",
+    "uvalib-social-links": "master",
+    "uvalib-skip-nav": "master",
+    "uvalib-helper-libs": "master",
+    "uvalib-theme": "master",
+    "lodash": "^4.17.4"
   }
 }
