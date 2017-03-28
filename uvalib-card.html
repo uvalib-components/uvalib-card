@@ -74,9 +74,10 @@ Custom property | Description | Default
         border: solid 1px #e0e0e0;
 /*
         @apply(--layout-vertical);
-*/
+
         @apply(--paper-font-common-base);
         @apply(--uvalib-card);
+        */
       }
 
       :host #wrapper {
@@ -88,6 +89,7 @@ Custom property | Description | Default
       }
 
       #content {
+        @apply(--layout-flex);
         @apply(--layout-vertical);
       }
 
@@ -101,8 +103,9 @@ Custom property | Description | Default
         border-top-left-radius: inherit;
         border-top-right-radius: inherit;
         overflow: hidden;
-
+/*
         @apply(--uvalib-card-header);
+        */
       }
 
       .header iron-image {
@@ -110,12 +113,14 @@ Custom property | Description | Default
         width: 100%;
         --iron-image-width: 100%;
         pointer-events: none;
-
+/*
         @apply(--uvalib-card-header-image);
+        */
       }
 
       :host #wrapper[horizontal] .header {
         width: 185px;
+        @apply(--layout-vertical);
       }
       :host #wrapper[small-screen] .header {
         width: 121px;
@@ -127,7 +132,7 @@ Custom property | Description | Default
 
       :host #wrapper[horizontal] .header iron-image {
         width: auto;
-        height: 100%;
+        @apply(--layout-flex);
       }
 
       .header .title-text {
@@ -140,15 +145,17 @@ Custom property | Description | Default
         line-height: 1.33;
         letter-spacing: normal;
         color: rgba(0, 0, 0, 0.54);
-
+/*
         @apply(--uvalib-card-header-text);
+        */
       }
 
       .header .title-text.over-image {
         position: absolute;
         bottom: 0px;
-
+/*
         @apply(--uvalib-card-header-image-text);
+        */
       }
 
       #content .title-text {
@@ -177,7 +184,9 @@ Custom property | Description | Default
         position: relative;
 
         @apply(--layout-flex);
+        /*
         @apply(--uvalib-card-content);
+        */
       }
 
       :host #wrapper[horizontal] ::content .card-content {
@@ -188,8 +197,19 @@ Custom property | Description | Default
         border-top: 1px solid #e8e8e8;
         padding: 5px 16px;
         position:relative;
-
+/*
         @apply(--uvalib-card-actions);
+        */
+        --uvalib-button: {
+          font-family: var(--font-primary);
+          font-size: 14px;
+          font-weight: 500;
+          font-style: normal;
+          font-stretch: normal;
+          line-height: normal;
+          letter-spacing: normal;
+          color: #265794;
+        };
       }
 
       :host #content ::content .card-content h3 {
