@@ -72,15 +72,15 @@ Custom property | Description | Default
         border-radius: 2px;
         width: 100%;
         border: solid 1px #e0e0e0;
+        @apply(--layout-horizontal);
 /*
-        @apply(--layout-vertical);
-
         @apply(--paper-font-common-base);
         @apply(--uvalib-card);
         */
       }
 
       :host #wrapper {
+        @apply(--layout-flex);
         @apply(--layout-vertical);
       }
 
@@ -89,6 +89,7 @@ Custom property | Description | Default
       }
 
       #content {
+        width: 100%;
         @apply(--layout-flex);
         @apply(--layout-vertical);
       }
@@ -125,11 +126,11 @@ Custom property | Description | Default
       :host #wrapper[small-screen] .header {
         width: 121px;
       }
-
+/*
       #wrapper {
         height: 100%;
       }
-
+*/
       :host #wrapper[horizontal] .header iron-image {
         width: auto;
         @apply(--layout-flex);
@@ -223,6 +224,12 @@ Custom property | Description | Default
         letter-spacing: normal;
         text-align: left;
         color: rgba(52, 52, 52, 0.87);
+      }
+
+      :host #content ::content .card-content ul {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
       }
     </style>
 
