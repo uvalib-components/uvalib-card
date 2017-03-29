@@ -14,6 +14,8 @@
 
     <link rel="import" href="../uvalib-card.html">
     <link rel="import" href="../uvalib-common-cards.html">
+    <link rel="import" href="../uvalib-research-card.html">
+    <link rel="import" href="../uvalib-spaces-card.html">
 
     <style is="custom-style" include="demo-pages-shared-styles">
     </style>
@@ -25,12 +27,9 @@
       <demo-snippet>
         <template>
           <style is="custom-style">
-            uvalib-card {
-
-            }
-
             .card {
               margin-bottom: 20px;
+              height: 400px;
             }
           </style>
           <uvalib-research-card class="card"></uvalib-research-card>
@@ -48,14 +47,14 @@
 
             }
 
-            .card {
+            .card2 {
               margin-bottom: 20px;
               height: 500px;
             }
           </style>
           <iron-media-query query="(max-width: 600px)" query-matches="{{smallScreen}}"></iron-media-query>
-          <uvalib-featured-exhibit-card class="card" horizontal small-screen$="{{smallScreen}}"></uvalib-featured-exhibit-card>
-          <uvalib-engage-card class="card" horizontal small-screen$="{{smallScreen}}"></uvalib-engage-card>
+          <uvalib-featured-exhibit-card class="card2" horizontal small-screen$="{{smallScreen}}"></uvalib-featured-exhibit-card>
+          <uvalib-engage-card class="card2" horizontal small-screen$="{{smallScreen}}"></uvalib-engage-card>
         </template>
       </demo-snippet>
     </div>
