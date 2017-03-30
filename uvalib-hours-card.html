@@ -2,6 +2,7 @@
 <link rel="import" href="../uvalib-theme/uvalib-theme.html">
 <link rel="import" href="uvalib-card.html">
 <link rel="import" href="../byutv-jsonp/byutv-jsonp.html">
+<link rel="import" href="../uvalib-helper-libs/polyfills.html">
 
 <!--
 `uvalib-research-card`
@@ -181,6 +182,7 @@ _buildLibrariesHours: function(data) {
     unsorted[key] = info;
     locations.push(key);
   }
+
   // If all locations are specified then make sure theh list is sorted alphabetically
   if (this.allLocations) {
     locations.sort();
@@ -196,8 +198,10 @@ _buildLibrariesHours: function(data) {
   } else {
     // create libraries array from string of locations
     var libLocations = this.locations.split(",");
+
     // loop through each library and build
     for (var i=0; i < libLocations.length; i++) {
+
       for (key in unsorted) {
         if (key.toString().includes(libLocations[i])) {
           var info = {
@@ -211,6 +215,7 @@ _buildLibrariesHours: function(data) {
       }
     }
   }
+  
   return libraries;
 },
 
