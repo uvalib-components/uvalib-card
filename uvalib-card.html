@@ -232,9 +232,20 @@ Custom property | Description | Default
         padding: 0;
         margin: 0;
       }
+
+      [vertical][image] .header {
+        height: 200px;
+      }
+      [vertical][image] .header .title-text {
+        color: #fff;
+      }
+      [vertical][image] iron-image {
+        height: 100%;
+      }
     </style>
 
-    <div id="wrapper" horizontal$="[[horizontal]]" small-screen$="[[smallScreen]]">
+    <div id="wrapper" horizontal$="[[horizontal]]" vertical$="[[!horizontal]]" image$="[[image]]" small-screen$="[[smallScreen]]">
+
       <div class="header">
         <iron-image sizing="cover"
             hidden$="[[!image]]"
@@ -273,7 +284,7 @@ Custom property | Description | Default
          */
         image: {
           type: String,
-          value: ''
+          value: null
         },
 
         /**

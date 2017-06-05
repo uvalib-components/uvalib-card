@@ -32,7 +32,7 @@ Featured Content Card display component for the Library Web
     </style>
 
     <uvalib-model-query featured data="{{data}}" content-type="[[contentType]]"></uvalib-model-query>
-    <uvalib-card class="card" heading="[[heading]]">
+    <uvalib-card class="card" heading="[[heading]]" image="[[image]]">
         <div class="card-content">
           <ul>
             <template is="dom-repeat" items="[[data]]">
@@ -65,6 +65,10 @@ Featured Content Card display component for the Library Web
         linkText: {
           type: String,
           value: "More Services"
+        },
+        image: {
+          type: String,
+          value: null
         }
       }
     });
