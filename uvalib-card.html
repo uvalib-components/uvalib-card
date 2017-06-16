@@ -247,14 +247,16 @@ Custom property | Description | Default
     <div id="wrapper" horizontal$="[[horizontal]]" vertical$="[[!horizontal]]" image$="[[image]]" small-screen$="[[smallScreen]]">
 
       <div class="header">
-        <iron-image sizing="cover"
-            hidden$="[[!image]]"
-            aria-hidden$="[[_isHidden(image)]]"
-            src="[[image]]"
-            alt="[[alt]]"
-            placeholder="[[placeholderImage]]"
-            preload="[[preloadImage]]"
-            fade="[[fadeImage]]"></iron-image>
+        <template is="dom-if" if="[[image]]" restamp>
+          <iron-image sizing="cover"
+              hidden$="[[!image]]"
+              aria-hidden$="[[_isHidden(image)]]"
+              src="[[image]]"
+              alt="[[alt]]"
+              placeholder="[[placeholderImage]]"
+              preload="[[preloadImage]]"
+              fade="[[fadeImage]]"></iron-image>
+          </template>
         <div hidden$="[[!_imageHeading(heading,horizontal)]]" class$="title-text [[_computeHeadingClass(image)]]">[[heading]]</div>
       </div>
 
