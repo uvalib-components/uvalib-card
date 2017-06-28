@@ -3,6 +3,6 @@
   "description": "Card display component for the Library Web",
   "main": "uvalib-card.html",
   "dependencies": {
-    "uvalib-elements": "uvalib-components/uvalib-elements#2.0"
+    "uvalib-elements": "uvalib-components/uvalib-elements#master"
   }
 }
