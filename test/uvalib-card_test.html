@@ -10,6 +10,9 @@
 
     <link rel="import" href="../uvalib-card.html">
     <link rel="import" href="../uvalib-common-cards.html">
+    <link rel="import" href="../uvalib-featured-content-card.html">
+    <link rel="import" href="../uvalib-research-card.html">
+    <link rel="import" href="../uvalib-spaces-card.html">
   </head>
   <body>
 
@@ -28,11 +31,11 @@
         <uvalib-spaces-card></uvalib-spaces-card>
       </template>
     </test-fixture>
-    <test-fixture id="services">
+    <!-- test-fixture id="services">
       <template>
         <uvalib-services-card></uvalib-services-card>
       </template>
-    </test-fixture>
+    </test-fixture -->
     <test-fixture id="featured-exhibit">
       <template>
         <uvalib-featured-exhibit-card horizontal></uvalib-featured-exhibit-card>
@@ -59,10 +62,10 @@
           var element = fixture('spaces');
           assert.equal(element.is, 'uvalib-spaces-card');
         });
-        test('instantiating the element works', function() {
-          var element = fixture('services');
-          assert.equal(element.is, 'uvalib-services-card');
-        });
+//        test('instantiating the element works', function() {
+//          var element = fixture('services');
+//          assert.equal(element.is, 'uvalib-services-card');
+//        });
         test('instantiating the element works', function() {
           var element = fixture('featured-exhibit');
           assert.equal(element.is, 'uvalib-featured-exhibit-card');
@@ -77,7 +80,7 @@
       a11ySuite('basic');
       a11ySuite('research');
       a11ySuite('spaces');
-      a11ySuite('services');
+//      a11ySuite('services');
       a11ySuite('featured-exhibit');
       a11ySuite('engage');
     </script>
