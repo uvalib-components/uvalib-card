@@ -3,16 +3,19 @@
 <link rel="import" href="../paper-button/paper-button.html">
 <link rel="import" href="../uva-models/uva-library.html">
 <link rel="import" href="../polymer/lib/elements/dom-repeat.html">
+<link rel="import" href="../uvalib-theme/uvalib-theme.html">
 
 <dom-module id="uvalib-card">
   <template>
-    <style>
-      :host {
-        display: block;
-      }
-    </style>
+    <custom-style>
+      <style include="uvalib-theme">
+        :host {
+          display: block;
+        }
+      </style>
+    </custom-style>
     <uva-library path="web/resource-cards" uuid="[[uuid]]" item="{{_rescard}}"></uva-library>
-    <paper-card hidden$="[[!_rescard]]" heading="[[_rescard.title]]" image="[[_rescard.image]]" alt="Emmental">
+    <paper-card hidden$="[[!_rescard]]" heading="[[_rescard.title]]" image="[[_image]]" alt="[[_rescard.imageAlt]]" elevation="[[elevation]]">
       <div class="card-content">
         <nav>
           <ul>
@@ -45,8 +48,24 @@
       static get is() { return 'uvalib-card'; }
       static get properties() {
         return {
-          uuid: String
+          uuid: String,
+          elevation: {
+            type: Number,
+            value: 3
+          },
+          _rescard: Object,
+          _image: {
+            type: String,
+            computed: "_getImage(_rescard)"
+          }
         };
+      }
+      _getImage(rescard){
+        if (rescard.image) {
+          return rescard.image;
+        } else {
+          return "http://placehold.it/700x467/FFC107/000000";
+        }
       }
     }
 
