@@ -10,6 +10,9 @@
 
     <link rel="import" href="../../iron-demo-helpers/demo-pages-shared-styles.html">
     <link rel="import" href="../../iron-demo-helpers/demo-snippet.html">
+    <link rel="import" href="../polymer/lib/elements/dom-repeat.html">
+    <link rel="import" href="../../polymer/lib/elements/dom-bind.html">
+    <link rel="import" href="../uva-models/uva-library.html">
     <link rel="import" href="../uvalib-card.html">
 
     <custom-style>
@@ -22,8 +25,17 @@
       <h3>Basic uvalib-card demo</h3>
       <demo-snippet>
         <template>
-          <uvalib-card id="research" uuid="1731a2e1-8094-415b-aed6-9b7e2eb844bd"></uvalib-card>
-          <uvalib-card id="spaces" uuid="68a9ea1d-0864-45d9-81be-224a9cf744e6"></uvalib-card>
+          <dom-bind id="app">
+            <template>
+              <uva-library path="web/resource-cards" last-response="{{cards}}"></uva-library>
+              <dom-repeat items="[[cards]]">
+                <template>
+                  <uvalib-card uuid="[[item.uuid]]"></uvalib-card>
+                </template>
+              </dom-repeat>
+            </template>
+          </dom-bind>
+
         </template>
       </demo-snippet>
     </div>

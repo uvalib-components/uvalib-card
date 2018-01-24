@@ -4,14 +4,12 @@
 <link rel="import" href="../uva-models/uva-library.html">
 <link rel="import" href="../polymer/lib/elements/dom-repeat.html">
 <link rel="import" href="../uvalib-theme/uvalib-theme.html">
+<link rel="import" href="../uvalib-theme/uvalib-card-style.html">
 
 <dom-module id="uvalib-card">
   <template>
     <custom-style>
-      <style include="uvalib-theme">
-        :host {
-          display: block;
-        }
+      <style include="uvalib-theme uvalib-card-style">
       </style>
     </custom-style>
     <uva-library path="web/resource-cards" uuid="[[uuid]]" item="{{_rescard}}"></uva-library>
