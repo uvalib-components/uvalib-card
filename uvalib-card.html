@@ -14,7 +14,7 @@
       </style>
     </custom-style>
     <uva-library path="web/resource-cards" uuid="[[uuid]]" item="{{_rescard}}"></uva-library>
-    <paper-card hidden$="[[!_rescard]]" heading="[[_rescard.title]]" image="[[_image]]" alt="[[_rescard.imageAlt]]" elevation="[[elevation]]">
+    <paper-card dark$="[[_rescard.dark]]" hidden$="[[!_rescard]]" heading="[[_rescard.title]]" image="[[_image]]" alt="[[_rescard.imageAlt]]" elevation="[[elevation]]">
       <div class="card-content">
         <template is="dom-if" if="[[_rescard.body]]">
           <marked-element markdown="[[_rescard.body]]">
@@ -22,15 +22,13 @@
           </marked-element>
         </template>
         <template is="dom-if" if="[[_rescard.links]]">
-          <nav>
-            <ul>
+          <ul>
             <dom-repeat items="[[_rescard.links]]">
               <template>
                 <li><a href="[[item.url]]">[[item.title]]</a></li>
               </template>
             </dom-repeat>
-            </ul>
-          </nav>
+          </ul>
         </template>
       </div>
       <template is="dom-if" if="[[_rescard.actionUrl]]">
