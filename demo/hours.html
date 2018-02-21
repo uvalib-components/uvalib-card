@@ -10,7 +10,8 @@
 
     <link rel="import" href="../../iron-demo-helpers/demo-pages-shared-styles.html">
     <link rel="import" href="../../iron-demo-helpers/demo-snippet.html">
-    <link rel="import" href="../uvalib-hours-card.html">
+    <link rel="import" href="../../paper-card/paper-card.html">
+    <link rel="import" href="../uvalib-hours-ui.html">
 
     <custom-style>
       <style is="custom-style" include="demo-pages-shared-styles">
@@ -23,7 +24,11 @@
       <demo-snippet>
         <template>
 
-          <uvalib-hours-card></uvalib-hours-card>
+          <paper-card>
+            <div class="card-content">
+              <uvalib-hours-ui single-day></uvalib-hours-ui>
+            </div>
+          </paper-card>
 
         </template>
       </demo-snippet>
