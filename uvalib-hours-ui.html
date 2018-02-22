@@ -17,19 +17,22 @@
           width: 100%;
           border-collapse: collapse;
         }
-        td {width:30%;}
-        td:first-of-type {width: 70%;}
+        td {width:20%;}
+        td:first-of-type {width: 60%;}
         tr:nth-child(even) { background-color: var(--color-light-gray)}
       </style>
     </custom-style>
     <uva-library filter="libcalID" items="{{_libraries}}" sort-by="shortTitle"></uva-library>
-    <uva-library-hours id="hours"></uva-library-hours>
+    <uva-library-hours id="hours" times="{{_times}}"></uva-library-hours>
 
     <table>
       <thead>
         <tr class="hideme">
           <th scope="col" class="noborder" >
             <span class="offscreen">Library Name</span>
+          </th>
+          <th scope="col" class="noborder" >
+            <span class="offscreen">Current Open or Close status</span>
           </th>
           <th scope="col" class="noborder">
             <span class="offscreen">Today's Hours of Opperation</span>
@@ -41,9 +44,11 @@
           <tr>
             <td>
               [[item.shortTitle]]
-              <span hidden$="[[_isClosed(item.libcalID,_refresh)]]" class="open">open</span>
             </td>
-            <td>[[_getRange(item.libcalID,_refresh)]]</td>
+            <td>
+              <span hidden$="[[_isClosed(item.libcalID,_times,_refresh)]]" class="open">open</span>
+            </td>
+            <td>[[_getRange(item.libcalID,_times,_refresh)]]</td>
           </tr>
         </template>
       </tbody>
