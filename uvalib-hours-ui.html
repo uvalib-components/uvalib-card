@@ -52,7 +52,7 @@
         <template is="dom-repeat" items="[[_libraries]]" filter="_hasLibCal">
           <tr>
             <td>
-              [[item.shortTitle]]
+              [[_noLibrary(item.shortTitle)]]
             </td>
             <td>
               <span hidden$="[[_isClosed(item.libcalID,_times,_refresh)]]" class="open">open</span>
@@ -100,6 +100,9 @@
       disconnectedCallback(){
         super.disconnectedCallback();
         clearInterval(this._intervalId);
+      }
+      _noLibrary(title){
+        return title.replace('Library','');
       }
       _hasLibCal(lib){
         return !!(lib.libcalID);
