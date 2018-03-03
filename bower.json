@@ -1,7 +1,7 @@
 {
   "name": "uvalib-card",
-  "description": "Various Card components in use on the Library site",
-  "main": "uvalib-card.html",
+  "description": "UI layout for hours information",
+  "main": "uvalib-hours-ui.html",
   "dependencies": {
     "uvalib-elements": "uvalib-components/uvalib-elements#master"
   },
