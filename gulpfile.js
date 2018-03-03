@@ -5,7 +5,7 @@ var rename = require("gulp-rename");
 
 // Test the web component accessibility by writing a report
 gulp.task('accessibility-report', function() {
-  return gulp.src('./demo/index.html')
+  return gulp.src('./demo/hours.html')
     .pipe(access({
       force: true,
       verbose: false,
@@ -32,7 +32,7 @@ gulp.task('accessibility-report', function() {
 
 // Test the web component accessibility via console output for automated processes.
 gulp.task('accessibility', function() {
-  return gulp.src('./demo/index.html')
+  return gulp.src('./demo/hours.html')
     .pipe(access({
       force: true,
       verbose: true,
