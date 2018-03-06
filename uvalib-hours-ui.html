@@ -36,41 +36,41 @@
     <uva-library filter="libcalID" items="{{_libraries}}" sort-by="shortTitle"></uva-library>
     <uva-library-hours id="hours" times="{{_times}}"></uva-library-hours>
 
-    <table class="daily-hours">
-      <thead>
-        <tr class="hideme">
-          <th scope="col" class="noborder" >
+    <div class="table daily-hours">
+      <div class="thead">
+        <div class="tr hideme">
+          <div scope="col" class="th noborder" >
             <span class="offscreen">Library Name</span>
-          </th>
-          <th scope="col" class="noborder" >
+          </div>
+          <div scope="col" class="th noborder" >
             <span class="offscreen">Current Open or Close status</span>
-          </th>
-          <th scope="col" class="noborder">
-            <span class="offscreen">Today's Hours of Opperation</span>
-          </th>
-        </tr>
-      </thead>
-      <tbody>
+          </div>
+          <div scope="col" class="th noborder">
+            <span class="offscreen">Today's Hours of Operation</span>
+          </div>
+        </div>
+      </div>
+      <div class="tbody">
         <template is="dom-repeat" items="[[_libraries]]" filter="_hasLibCal">
-          <tr>
-            <td>
+          <div class="tr">
+            <div class="td">
               [[_noLibrary(item.shortTitle)]]
-            </td>
-            <td>
+            </div>
+            <div class="td">
               <span hidden$="[[_isClosed(item.libcalID,_times,_refresh)]]" class="open">open</span>
-            </td>
-            <td>[[_getRange(item.libcalID,_times,_refresh)]]</td>
-          </tr>
+            </div>
+            <div clsss="td">[[_getRange(item.libcalID,_times,_refresh)]]</div>
+          </div>
         </template>
-      </tbody>
-    </table>
+      </div>
+    </div>
 
   </template>
 
   <script>
     /**
-     * `uvalib-hours-card`
-     * Card showing todays hours of opperation at the Libraries
+     * `uvalib-hours-ui`
+     * Card showing todays hours of operation at the Libraries
      *
      * @customElement
      * @polymer
