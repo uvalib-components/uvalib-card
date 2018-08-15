@@ -1,0 +1,14 @@
+{
+  "name": "uvalib-page",
+  "description": "UVA Library page layout component",
+  "main": "uvalib-page.html",
+  "dependencies": {
+    "uvalib-elements": "uvalib-components/uvalib-elements#master",
+    "vaadin-grid": "vaadin/vaadin-grid#^5.0.4"
+  },
+  "resolutions": {
+    "polymer": "^v2.0.0",
+    "lodash": "^4.17.5",
+    "webcomponentsjs": "^v1.1.0"
+  }
+}

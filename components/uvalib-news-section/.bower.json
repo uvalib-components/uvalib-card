@@ -1,0 +1,21 @@
+{
+  "name": "uvalib-news-section",
+  "description": "This component handles the Library news display on the homepage",
+  "main": "uvalib-news-section.html",
+  "dependencies": {
+    "uvalib-elements": "uvalib-components/uvalib-elements#master"
+  },
+  "resolutions": {
+    "lodash": "^4.17.4"
+  },
+  "homepage": "https://github.com/uvalib-components/uvalib-news-section",
+  "_release": "7318d8718e",
+  "_resolution": {
+    "type": "branch",
+    "branch": "master",
+    "commit": "7318d8718e5e97bc702a33c249e7f4ebff03e672"
+  },
+  "_source": "https://github.com/uvalib-components/uvalib-news-section.git",
+  "_target": "master",
+  "_originalSource": "uvalib-components/uvalib-news-section"
+}

@@ -1,0 +1,23 @@
+{
+  "name": "uvalib-search-box",
+  "description": "Search Box for UVA Library pages",
+  "main": "uvalib-search-box.html",
+  "dependencies": {
+    "uvalib-elements": "uvalib-components/uvalib-elements#master"
+  },
+  "resolutions": {
+    "lodash": "^4.17.4",
+    "polymer": "^v2.0.0",
+    "webcomponentsjs": "^v1.1.0"
+  },
+  "homepage": "https://github.com/uvalib-components/uvalib-search-box",
+  "_release": "6f011b64cd",
+  "_resolution": {
+    "type": "branch",
+    "branch": "master",
+    "commit": "6f011b64cda2d80b6d67d1fd786c97fd4925dc43"
+  },
+  "_source": "https://github.com/uvalib-components/uvalib-search-box.git",
+  "_target": "master",
+  "_originalSource": "uvalib-components/uvalib-search-box"
+}
