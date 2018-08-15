@@ -36,31 +36,30 @@
     <uva-library filter="libcalID" items="{{_libraries}}" sort-by="shortTitle"></uva-library>
     <uva-library-hours id="hours" times="{{_times}}"></uva-library-hours>
 
-    <div class="table daily-hours">
-      <div class="thead">
-        <div class="tr hideme">
-          <div scope="col" class="th noborder" >
+    <div class="table daily-hours" role="table" aria-readonly="true">
+      <div class="thead" role="rowgroup">
+        <div class="tr hideme" role="row">
+          <div scope="col" class="th noborder" role="columnheader">
             <span class="offscreen">Library Name</span>
           </div>
-          <div scope="col" class="th noborder" >
+          <div scope="col" class="th noborder" role="columnheader">
             <span class="offscreen">Current Open or Close status</span>
-
           </div>
-          <div scope="col" class="th noborder">
+          <div scope="col" class="th noborder" role="columnheader">
             <span class="offscreen">Today's Hours of Operation</span>
           </div>
         </div>
       </div>
-      <div class="tbody">
+      <div class="tbody" role="rowgroup">
         <template is="dom-repeat" items="[[_libraries]]" filter="_hasLibCal">
-          <div class="tr">
-            <div class="td">
+          <div class="tr" role="row">
+            <div class="td" role="cell">
               [[_noLibrary(item.shortTitle)]]
             </div>
-            <div class="td">
+            <div class="td" role="cell">
               <span hidden$="[[_isClosed(item.libcalID,_times,_refresh)]]" class="open">open</span>
             </div>
-            <div clsss="td">[[_getRange(item.libcalID,_times,_refresh)]]</div>
+            <div clsss="td" role="cell">[[_getRange(item.libcalID,_times,_refresh)]]</div>
           </div>
         </template>
       </div>
