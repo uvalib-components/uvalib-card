@@ -59,7 +59,11 @@
             <div class="td" role="cell">
               <span hidden$="[[_isClosed(item.libcalID,_times,_refresh)]]" class="open">open</span>
             </div>
-            <div clsss="td" role="cell">[[_getRange(item.libcalID,_times,_refresh)]]</div>
+            <div clsss="td" role="cell">
+                <uvalib-model-realtime-override database="uvalib-occupancy" path$="[[_overridePath(item.slug)]]" timestamp default-value$="[[_noLibrary(item.shortTitle)]] occupancy: CLOSED FOR NONCOMPLIANCE">
+                  [[_getRange(item.libcalID,_times,_refresh)]]
+                </uvalib-model-realtime-override>
+            </div>
           </div>
         </template>
       </div>
@@ -102,6 +106,9 @@
       disconnectedCallback(){
         super.disconnectedCallback();
         clearInterval(this._intervalId);
+      }
+      _overridePath(id){
+        return `locations-schemaorg/location/${id}/tempClosed`;
       }
       _noLibrary(title){
         return title.replace('Library','');
