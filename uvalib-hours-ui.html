@@ -60,7 +60,7 @@
               <span hidden$="[[_isClosed(item.libcalID,_times,_refresh)]]" class="open">open</span>
             </div>
             <div clsss="td" role="cell">
-                <uvalib-model-realtime-override database="uvalib-occupancy" path$="[[_overridePath(item.slug)]]" timestamp default-value="[[_noLibrary(item.shortTitle)]] occupancy: CLOSED FOR NONCOMPLIANCE">
+                <uvalib-model-realtime-override database="uvalib-occupancy" path$="[[_overridePath(item.slug)]]" timestamp default-value="Temporarily Closed">
                   [[_getRange(item.libcalID,_times,_refresh)]]
                 </uvalib-model-realtime-override>
             </div>
